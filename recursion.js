@@ -103,3 +103,11 @@ var isNumPalindrome= function(n){
         
     }
 }
+
+
+//Find sum of array elements using recursion
+var sumOfArray= function(a, arr){
+    if(a==0) return arr
+    return arr[0]+sumOfArray(a-1,arr.slice(1))
+}
+console.log("sum of array",sumOfArray(5,[1,2,3,4,5]))
