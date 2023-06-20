@@ -1,3 +1,119 @@
+//26. Remove Duplicates from Sorted Array
+var removeDuplicates = function(nums) {
+    let i,j
+    i=0,j=1
+    while(j<nums.length){
+        if(nums[i]!=nums[j]){
+            i++
+            nums[i]=nums[j]
+        }j++
+    }
+    return i+1
+};
+console.log(removeDuplicates([1,1,2]))
+
+//167. Two Sum II - Input Array Is Sorted
+var twoSum = function(nums,target) {
+    let i,j
+    i=0,j=nums.length-1
+    while(j<nums.length){
+        if(nums[i]+nums[j]==target) return [i+1,j+1]
+        else if(nums[i]+nums[j]>target)j--
+        else i++
+    }
+    return 
+};
+console.log(twoSum([2,3,4],6))
+
+//189. Rotate Array
+const rotateArr=function(nums,k){
+    let i,j
+    i=0,j=nums.length-1
+    while(i<j){
+        nums[i]=nums[i]+nums[j]
+        nums[j]=nums[i]-nums[j]
+        nums[i]=nums[i]-nums[j]
+        i++
+        j--
+    }
+    i=0,j=(k%nums.length)-1
+    while(i<j){
+        nums[i]=nums[i]+nums[j]
+        nums[j]=nums[i]-nums[j]
+        nums[i]=nums[i]-nums[j]
+        i++
+        j--
+    }
+    i=(k%nums.length),j=nums.length-1
+    while(i<j){
+        nums[i]=nums[i]+nums[j]
+        nums[j]=nums[i]-nums[j]
+        nums[i]=nums[i]-nums[j]
+        i++
+        j--
+    }
+    console.log(nums)
+}
+console.log(rotateArr([1,2,3,4,5,6,7],3))
+
+//11. Container With Most Water
+const containerWithWater = function(arr){
+    let left=0,right=arr.length-1,maxArea=0
+    while(left<right){
+        h=Math.min(arr[left],arr[right])
+        w=right-left
+        area=w*h
+        maxArea=Math.max(maxArea,area)
+        if(arr[left]<arr[right]) left++
+        else right--
+
+    }
+    return maxArea
+}
+console.log("max prod:",containerWithWater([1,8,6,2,5,4,8,3,7]))
+
+//238. Product of Array Except Self
+
+const productExceptSelf= function(arr){
+   let prefix=1,postfix=1
+   let res=new Array(arr.length).fill(1)
+   for(let i=0;i<arr.length;i++){
+    res[i]*=prefix
+    prefix*=arr[i]
+   }
+   for(let i=arr.length-1;i>=0;i--){
+    res[i]*=postfix
+    postfix*=arr[i]
+   }
+   return res
+}
+console.log(productExceptSelf([1,2,3,4]))  
+
+
+//Q1 Given two sorted arrays and a number x, find the pair whose sum is closest to x and the pair has an element from each array. 
+// a).
+// Input:  ar1[] = {1, 4, 5, 7};
+//         ar2[] = {10, 20, 30, 40};
+//         x = 32      
+// Output:  1 and 30
+
+const closest = function (arr,arr2,x){
+    let res=[],dist=Infinity,i=0,j=arr2.length-1
+    while(i<j){
+        if(Math.abs(arr[i]+arr2[j]-x)<dist)
+        {
+            res=[arr[i],arr2[j]]
+            dist=Math.abs(arr[i]+arr2[j]-x)
+        }
+        if((arr[i]+arr2[j]-x)>0)j--
+        else i++
+    }
+    return res
+}
+ar1 = [1, 4, 5, 7]
+ar2 = [10, 20, 30, 40],x=32
+console.log("closest ",closest(ar1,ar2,x))
+
 //sumZero problem
 
 //Write a function called sumZero which accepts a sorted array of integers. The function should find the first pair where the sum is 0. Return an array that includes both values that sum to zero or undefined if a pair does not exist
@@ -39,30 +155,6 @@ console.log(countUniqueValues([1,2,3,4,4,4,7,7,12,12,13])) //7
 console.log(countUniqueValues([]) ) //0
 console.log(countUniqueValues([-2,-1,-1,0,1]) ) //4
 
-//Q1 Given two sorted arrays and a number x, find the pair whose sum is closest to x and the pair has an element from each array. 
-// a).
-// Input:  ar1[] = {1, 4, 5, 7};
-//         ar2[] = {10, 20, 30, 40};
-//         x = 32      
-// Output:  1 and 30
-
-const closest = function (arr,arr2,x){
-    let res=[]
-    let dist=Infinity
-    let i=0,j=arr2.length-1
-    while (i<j) {
-        if(Math.abs(arr[i]+arr2[j]-x)<dist){
-            res=[arr[i],arr2[j]]
-            dist=Math.abs(arr[i]+arr2[j]-x)
-        }
-        if((arr[i]+arr2[j]-x>0)) j--
-        else i++
-    }
-    return res
-}
-ar1 = [1, 4, 5, 7]
-ar2 = [10, 20, 30, 40],x=32
-console.log(closest(ar1,ar2,x))
 
 //b).
 // Input: arr[] = {10, 22, 28, 29, 30, 40}, x = 54
@@ -93,15 +185,16 @@ console.log(closestOfArr(arr,x))
 //  Explanation: The triplets with zero sum are 0 + -1 + 1 = 0 and 2 + -3 + 1 = 0  
 
 const tripletSumZero= function(arr){           //3sum
-
-
-    let res=[]
+    let res=[],sum=0
     arr.sort((a,b)=>a-b)
     for(let i=0;i<arr.length-2;i++){
         let l=i+1,r=arr.length-1
         while(l<r){
             sum=arr[i]+arr[l]+arr[r]        
-            if(sum==0) res.push([arr[i],arr[l],arr[r]])
+            if(sum==0){
+                let result= [arr[i],arr[l],arr[r]]
+                res.push(result)
+            }
             if(sum<0) l++;
             else r--;
         }
@@ -137,7 +230,7 @@ const tripletSumZero= function(arr){           //3sum
     // return result;
     
 }
-console.log(tripletSumZero([1,2,-2,-1]))
+console.log("triplet",tripletSumZero([1,2,-2,-1,-3,-1]))
 
 //Distance between two closest minimum
 
@@ -225,121 +318,8 @@ function solution(a,arr) {
       return maxSum
       
   }
-  
 
-// 189. Rotate Array:
-// Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
-// Input: nums = [1,2,3,4,5,6,7], k = 3
-// Output: [5,6,7,1,2,3,4]
-// Explanation:
-// rotate 1 steps to the right: [7,1,2,3,4,5,6]
-// rotate 2 steps to the right: [6,7,1,2,3,4,5]
-// rotate 3 steps to the right: [5,6,7,1,2,3,4]
-                        // formula-(i+k)%ar.length, where k is steps
-const rotateArr = function(nums,k){
-    let i,j
-    i=0,j=nums.length-1
-    while(i<j){
-        nums[i]=nums[i]+nums[j]
-        nums[j]=nums[i]-nums[j]
-        nums[i]=nums[i]-nums[j]
-        i++,j--
-    }
-    i=0,j=(k%nums.length)-1
-    while(i<j){
-        nums[i]=nums[i]+nums[j]
-        nums[j]=nums[i]-nums[j]
-        nums[i]=nums[i]-nums[j]
-        i++,j--
-    }
-    i=(k%nums.length),j=nums.length-1
-    while(i<j){
-        nums[i]=nums[i]+nums[j]
-        nums[j]=nums[i]-nums[j]
-        nums[i]=nums[i]-nums[j]
-        i++,j--
-    }
-    return nums
-}
-let k=3
-console.log(rotateArr([1,2,3,4,5,6,7], k))
 
-// 11. Container With Most Water:maxProduct problem
-// You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
-// Find two lines that together with the x-axis form a container, such that the container contains the most water.
-// Return the maximum amount of water a container can store.
-// Notice that you may not slant the container.
-
-// Input: height = [1,8,6,2,5,4,8,3,7]
-// Output: 49
-// Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
-
-const containerWithWater = function(arr){
-    let r=0;
-    let l=arr.length-1
-   let maxProd=1
-    while(r<l){
-    let h=Math.min(arr[r],arr[l])
-    let area 
-    let w=l-r
-    area =h*w
-     if(area>maxProd){
-        maxProd=area
-        console.log(arr[r],arr[l],maxProd)
-     }
-    if(arr[r]<arr[l]){
-      r++;
-    }else{
-      l--;
-    }
-    }
-    return maxProd
-    // let left = 0;
-    // let right = height.length - 1;
-    // let maxArea = 0;
-  
-    // while (left < right) {
-    //   let h = Math.min(height[left], height[right]);
-    //   let w = right - left;
-    //   let area = h * w;
-    //   maxArea = Math.max(maxArea, area);
-  
-    //   if (height[left] < height[right]) {
-    //     left++;
-    //   } else {
-    //     right--;
-    //   }
-    // }
-  
-    // return maxArea; 
-}
-console.log("max prod:",containerWithWater([[0,2]]))
-
-// 238. Product of Array Except Self
-
-// Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
-// The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
-// You must write an algorithm that runs in O(n) time and without using the division operation.
-// Input: nums = [1,2,3,4]
-// Output: [24,12,8,6]
-const productExceptSelf= function(arr){
-    let postfix,prefix 
-    let res= new Array(arr.length).fill(1)
-    postfix=1,prefix=1
-    for(let i=0;i<arr.length;i++){}
-    for(let i=0;i<arr.length;i++){
-        res[i]=res[i]*prefix
-        prefix=prefix*arr[i]
-        // console.log(prefix,res[i],arr[i])
-    }
-    for(let i=arr.length-1;i>=0;i--){
-        res[i]=res[i]*postfix
-        postfix=postfix*arr[i]
-        // console.log(postfix,res[i],arr[i])
-    }
-    return res
-}
-console.log(productExceptSelf([1,2,3,4]))  
 
 //75. Sort Colors
 // Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
@@ -389,7 +369,8 @@ const sum3 = function(nums){
         while(l<h){
             sum=nums[i]+nums[l]+nums[h]
             if(sum===0){ 
-                res.push([nums[i],nums[l],nums[h]])
+                result=[nums[i],nums[l],nums[h]]
+                res.push(result)
                 while(nums[l+1]==nums[l]) l++
                 while(nums[h-1]==nums[h]) h--
                 l++
@@ -403,3 +384,19 @@ const sum3 = function(nums){
     return res
 }
 console.log(sum3([-1,0,1,2,-1,-4]))
+
+//88. Merge Sorted Array
+var merge = function(nums1, m, nums2, n) {
+   
+    let i=m,j=nums2.length-1
+    while(i<nums1.length){
+        if(nums1[i]==0)
+        {
+            nums1[i]=nums2[j]
+            i++
+            j--
+        }
+    }
+    return nums1.sort((a,b)=>a-b)
+};
+console.log("mege",merge([1,2,3,0,0,0],3,[2,5,6],3))
