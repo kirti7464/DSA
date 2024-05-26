@@ -157,3 +157,15 @@ for(int i=0;i<n;i++){
         }
         cout<<endl;
     }
+10.
+A 
+B B
+C C C
+int alphaNum=65;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<=i;j++){
+            cout<<char(alphaNum)<<" ";
+        }
+        alphaNum++;
+        cout<<endl;
+    }
