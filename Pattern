@@ -144,3 +144,16 @@ A B C
         } 
         cout<<endl;
     }
+
+9.
+A B C
+A B
+A
+for(int i=0;i<n;i++){
+        int alphaNumber=65;
+        for(int j=0;j<n-i;j++){
+            cout<<char(alphaNumber)<<" ";
+            alphaNumber++;
+        }
+        cout<<endl;
+    }
