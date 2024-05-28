@@ -1,1 +1,18 @@
+1.
+Input:
+N = 12
+Output:
+2
+Explanation:
+1, 2 both divide 12 evenly
+
+          let c=0, n = N
+            while(n!=0){
+               let r= n%10
+                if( N%r==0){
+                    c++;
+                }
+                n=parseInt(n/10);
+            }
+            return c;
 
