@@ -1,0 +1,44 @@
+1.
+Input:
+N = 12
+Output:
+2
+Explanation:
+1, 2 both divide 12 evenly
+
+          let c=0, n = N
+            while(n!=0){
+               let r= n%10
+                if( N%r==0){
+                    c++;
+                }
+                n=parseInt(n/10);
+            }
+            return c;
+
+2.
+  Given a signed 32-bit integer x, 
+  return x with its digits reversed. If reversing x causes the value to go
+  outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+  Input: x = 123
+  Output: 321
+   int r=0,s=0;
+   while(x!=0){
+    r= x%10;
+    if(s>INT_MAX || s<INT_MIN) return 0;
+    else {
+     s = s*10+r;
+    }
+     x=x/10;
+   }
+   return s;
+ 
+3.
+  Palindrome
+  131-> true
+  123-> false
+          x=x.toString()
+          for(let i=0;i<x.length;i++){
+             if(x[i]!=x[x.length-i-1]) return false;
+          }
+          return true;
