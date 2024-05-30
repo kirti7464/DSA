@@ -48,3 +48,35 @@ Output: 10 9 8 7 6 5 4 3 2 1
             func()
         }
         console.log(result) 
+
+5. Palindrome
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+
+    let x= s.toLowerCase().replace(/[^a-zA-Z0-9]/g, '')
+    let i=0,j=x.length-1;
+    while(i<j){
+        if(x[i]!=x[j]) return false
+        i++;
+        j--;
+        
+    }
+    return true
+
+or
+
+var isPalin= function(s) {
+    if(s.length==0 ) {return true}
+    if(s[0]==s[s.length-1]) {
+        if(s.length==1) {return true}
+      if(s.length!=1) {return isPalin(s.slice(1,s.length-1));}
+    }
+    else{ return false}
+    
+};
+var isPalindrome = function(s) {
+    let x= s.toLowerCase().replace(/[^a-zA-Z0-9]/g, '')
+    let res=isPalin(x)
+    return res
+};
