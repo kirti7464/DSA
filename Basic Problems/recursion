@@ -80,3 +80,37 @@ var isPalindrome = function(s) {
     let res=isPalin(x)
     return res
 };
+
+6. factorial
+Input: N = 3
+Output: 1 2
+Explanation: The first factorial number is 
+1 which is less than equal to N. The second 
+number is 2 which is less than equal to N,
+but the third factorial number is 6 which 
+is greater than N. So we print only 1 and 2.
+
+    var factorial= function(x){
+        if(x==1 || x==0) return 1;
+        else 
+        {
+            let res= x*factorial(x-1);
+            return res
+        }
+    }
+        or
+
+     let i=1
+        let res =1,result=[]
+        var factorial= function(a){
+        if(a==1 ||a==0) return 1;
+        else return factorial(a-1)*a;
+        }
+       
+        while(res<=N){
+            
+            result.push(res)
+            i++
+            res = factorial(i);
+        }
+        return result
