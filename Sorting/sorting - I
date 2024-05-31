@@ -41,5 +41,7 @@
     }
     return a.join(" ");
    }
-  
+
+3. Insertion Sort Algorithm
+    swap element with element present at 1 index before it 
   
