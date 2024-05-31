@@ -1,8 +1,9 @@
 1. Selection Sort Algorithm:
-    swap minimum element of array with the first element
+    swap smallest element of array with the first element
     i -> 0 - <n-1
     j -> i+1 - <n
 
+    selectionSort(a,n){
     for (let i = 0; i < n - 1; i++) {
         let min = i;
         for (let j = i + 1; j < n; j++) {
@@ -17,5 +18,28 @@
         }
     }
     return a.join(" ");
+    }
+
+2. Bubble Sort Algorithm
+    swap largest element of array with the last element
+    i -> n-1 - >=0
+    j -> 0 - <=i-1
+
+    bubbleSort(a,n){
+    //code here
+    for(let i=n-1;i>=0;i--){
+        let max=i;
+        for(let j=0;j<=i-1;j++){
+            if(a[j]>a[max]){
+                max=j;
+            }
+        }
+        let temp=0;
+        temp=a[max]
+        a[max]=a[i]
+        a[i] = temp
+    }
+    return a.join(" ");
+   }
   
   
