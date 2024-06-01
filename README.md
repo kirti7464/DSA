@@ -4,3 +4,4 @@
 - hashing
 - recursion
 - maths problem
+- array
