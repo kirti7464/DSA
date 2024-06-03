@@ -100,3 +100,6 @@ function merge(nums, low, mid, high){
     }
     insertionSort(nums,0,nums.length)
     console.log(nums)
+
+3. Quick Sort
+      similiar to merge sort without using extra space for divide and conquer implementation.
