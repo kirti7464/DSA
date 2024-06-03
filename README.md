@@ -5,3 +5,4 @@
 - recursion
 - maths problem
 - array
+- Binary Search
