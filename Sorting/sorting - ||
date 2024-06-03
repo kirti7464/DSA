@@ -55,3 +55,26 @@ function merge(nums, low, mid, high){
   }
   mergesrt(nums,0, nums.length-1)
   console.log(nums);
+
+2. Recurrsive Bubble Sorting
+      sort and call same function with one less the number of element 
+      - run a loop from 0 to n-2
+      - check if first element is greater then second element
+            - if it is swap
+      - call the same function with one less number of element of array
+
+
+ let nums = [4,2,1,6,7]
+ function bubbleSort(nums, n){
+    if(n==1) return 
+    for(let i=0;i<n-2;i++){
+        if(nums[i]>nums[i+1])
+        {
+            [nums[i],nums[i+1]]=[nums[i+1],nums[i]]
+        }
+    }
+    bubbleSort(nums,n-1)
+ }
+ bubbleSort(nums,nums.length)
+ console.log(nums)
+
