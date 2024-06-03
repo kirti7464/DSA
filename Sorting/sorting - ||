@@ -1,0 +1,57 @@
+1. Merge Sort
+
+      Divide and conquer
+      - find low, high of an array
+      - find mid and divide the array in two using mid and pass that to same function
+      - call merge function
+        - take two pointer left, right [left = low, right = mid+1]
+        - run the loop till left becomes equal to mid and right to high, 
+          check if value present at left index is smaller than push that value to a temp arr, else vice versa.
+        - if one of these condition becomes true : left becomes equal to mid and right to high,
+          and the other one is still pending, then we will run loop for that pointer
+        - again one loop till left becomes equal to mid
+        - and right becomes equal to high
+        - at last, copy the elements of temp array to original array.
+      
+
+Example 1:
+Input: N=5, arr[]={4,2,1,6,7}
+Output: 1,2,4,6,7
+
+  function mergesrt(nums, low, high){
+    if(low >= high) {
+    return ;
+    }
+    let mid= Math.floor((low + high) / 2);
+    mergesrt(nums, low, mid)
+    mergesrt(nums, mid+1,high)
+    merge(nums, low, mid, high)
+}
+function merge(nums, low, mid, high){
+    let left= low;
+    let right= mid+1;
+    while(left<=mid && right <= high){
+        if(nums[left]<nums[right]) {
+            temp.push(nums[left])
+            left++
+        }
+        else{
+            temp.push(nums[right])
+            right++
+        }
+    }
+    while(left<=mid){
+        temp.push(nums[left])
+        left++
+    }
+    while(right<=high){
+        temp.push(nums[right])
+        right++
+    }
+    for (let i = low; i <= high; i++) {
+        nums[i] = temp[i - low];
+    }
+    temp = [];
+  }
+  mergesrt(nums,0, nums.length-1)
+  console.log(nums);
