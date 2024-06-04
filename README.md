@@ -5,4 +5,6 @@
 - recursion
 - maths problem
 - array
+- Sorting
 - Binary Search
+  
