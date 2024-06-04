@@ -42,3 +42,29 @@ Explanation:
              if(x[i]!=x[x.length-i-1]) return false;
           }
           return true;
+
+4.
+ GCD and LCM
+Input:
+A = 5 , B = 10
+Output:
+10 5
+Explanation:
+LCM of 5 and 10 is 10, while
+thier GCD is 5.
+
+lcmAndGcd(a, b){
+        //code here
+       function gcd(a,b){
+            while(a>0 && b>0){
+            if(a>b) a=a%b;
+            else b=b%a;
+            
+        }
+        if(a==0) return b;
+        else return a;
+       }
+       let gcdValue=gcd(a,b)
+       let lcm = (a*b)/gcdValue
+       return [lcm, gcdValue]
+    }
