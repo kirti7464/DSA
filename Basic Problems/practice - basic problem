@@ -134,3 +134,15 @@ function fibonnaci(n){
     else return fibonnaci(n-1)+ fibonnaci(n-2)
 }
 console.log(fibonnaci(N))
+
+** Hashing Problems ** -
+1.
+let arr=[2,3,4,5,3,2]
+function frequencyOfElem(arr){
+    let obj={}
+    for(let i=0;i<arr.length;i++){
+        obj[arr[i]] = (obj[arr[i]] || 0)+1
+    }
+    return Object.values(obj)
+}
+console.log(frequencyOfElem(arr))
