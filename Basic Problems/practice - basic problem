@@ -1,4 +1,4 @@
-Maths Problems -
+** Maths Problems ** -
 1.
 let N=4,N2=5
 function countDigits(N){
@@ -73,7 +73,7 @@ function sumOfDivisors(n){
 }
 console.log(sumOfDivisors(N));
 
-**Recursion Problems** - 
+** Recursion Problems ** - 
 1.
 function printNumber(n,i){
     if(n==i) return -1
