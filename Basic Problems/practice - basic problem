@@ -1,0 +1,73 @@
+1.
+let N=4,N2=5
+function countDigits(N){
+    let c=0,n=N;
+    while(n!=0){
+        let divisor = n%10;
+        if(N%divisor == 0) c++;
+        n=Math.floor(n/10)
+    }
+    return c
+}
+// console.log(countDigits(N));
+
+2.
+function reverseNum(N){
+    let res=0,n=N;
+    while(n!=0){
+        rem=n%10;
+        res = res*10+rem;
+        n=Math.floor(n/10)
+    }
+    return res
+}
+// console.log(reverseNum(N));
+
+3.
+function checkPalindrome(N){
+    let res=0,n=N;
+    while(n!=0){
+        rem=n%10;
+        res = res*10+rem;
+        n=Math.floor(n/10)
+    }
+    return res==N
+}
+// console.log(checkPalindrome(N,N2));
+
+4.
+function lcmGcd(a,b){
+    let gcd=0
+    while(a>0 && b>0){
+        if(a>b) a=a%b
+        else if (b>a) b=b%a
+    }
+    if(a==0) { gcd = b;}
+    else if(b==0) {gcd = a;}
+    lcm = (a*b)/gcd
+    return [lcm,gcd]
+}
+// console.log(lcmGcd(N,N2));
+
+5.
+function armstrong(N){
+    let res=0,n=N
+    while(n!=0){
+        let elem = n%10;
+        res = res + elem**3
+        n= Math.floor(n/10)
+    }
+    return res==N
+}
+// console.log(armstrong(N));
+
+6.
+function sumOfDivisors(n){
+    let res=0,i=1
+    while(i<=n){
+        res+=Math.floor(n/i)*i
+        i++
+    }
+    return res
+}
+console.log(sumOfDivisors(N));
