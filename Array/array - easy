@@ -16,3 +16,21 @@ The largest element of given array is 90.
         }
         return max;
     }
+
+2. Second largest element of an array
+Input: 
+N = 6
+Arr[] = {12, 35, 1, 10, 34, 1}
+Output: 34
+Explanation: The largest element of the 
+array is 35 and the second largest element
+is 34.
+
+  secondLargest(arr,n){
+        let a = Array.from(new Set(arr));
+        if (a.length < 2) {
+        return -1
+        }
+        a= a.sort((a,b)=>a-b)
+        return a[a.length-2]
+  }
