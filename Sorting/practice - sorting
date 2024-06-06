@@ -77,3 +77,15 @@ function merge(arr,low,mid,high){
 }
 mergeSort(arr,0,arr.length-1)
 console.log(arr)
+
+5.
+function recursiveBubbleSort(arr,n){
+    for(let i=0;i<n-1;i++){
+        if(arr[i]>arr[i+1]) [arr[i],arr[i+1]] = [arr[i+1],arr[i]]
+    }
+    recursiveBubbleSort(arr,n-1)
+}
+recursiveBubbleSort(arr,arr.length)
+console.log(arr)
+
+6.
