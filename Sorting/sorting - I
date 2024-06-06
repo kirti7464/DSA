@@ -23,13 +23,13 @@
 2. Bubble Sort Algorithm
     swap largest element of array with the last element
     i -> n-1 - >=0
-    j -> 0 - <=i-1
+    j -> 0 - <i
 
     bubbleSort(a,n){
     //code here
     for(let i=n-1;i>=0;i--){
         let max=i;
-        for(let j=0;j<=i-1;j++){
+        for(let j=0;j<i;j++){
             if(a[j]>a[max]){
                 max=j;
             }
