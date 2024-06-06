@@ -80,6 +80,7 @@ console.log(arr)
 
 5.
 function recursiveBubbleSort(arr,n){
+    if(n==0) return
     for(let i=0;i<n-1;i++){
         if(arr[i]>arr[i+1]) [arr[i],arr[i+1]] = [arr[i+1],arr[i]]
     }
@@ -89,3 +90,12 @@ recursiveBubbleSort(arr,arr.length)
 console.log(arr)
 
 6.
+function recursiveInsertionSort(arr,k,n){
+    if(n==k) return
+    for(let i=k;i>0;i--){
+        if(arr[i-1]>arr[i]) [arr[i-1],arr[i]] = [arr[i],arr[i-1]]
+    }
+    recursiveInsertionSort(arr,k+1,n)
+}
+recursiveInsertionSort(arr,0,arr.length)
+console.log(arr)
