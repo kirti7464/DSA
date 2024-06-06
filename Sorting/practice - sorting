@@ -99,3 +99,25 @@ function recursiveInsertionSort(arr,k,n){
 }
 recursiveInsertionSort(arr,0,arr.length)
 console.log(arr)
+
+7.
+function quickSort(arr,l,h){
+    if(l>=h) return
+    let p = partition(arr,l,h)
+    quickSort(arr,l,p-1)
+    quickSort(arr,p+1,h)
+}
+
+function partition(arr,l,h){
+    let pivot = arr[l]
+    let i=l,j=h
+    while(i<j){
+        while(arr[i]<=pivot && i<=h-1) i++
+        while(arr[j]>pivot && j>=l+1) j--
+        if(i<j) [arr[i],arr[j]] = [arr[j],arr[i]]
+    }
+    [arr[l],arr[j]] = [arr[j],arr[l]]
+    return j
+}
+quickSort(arr,0,arr.length-1)
+console.log(arr)
