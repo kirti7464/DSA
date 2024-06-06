@@ -120,7 +120,7 @@ function merge(nums, low, mid, high){
       function quickSort(arr,low,high){
             let p = this.partition(arr,low,high)
             quickSort(arr,low,p-1)
-            quickSort(arr,p-1,high)
+            quickSort(arr,p+1,high)
       }
     quickSort(nums,0,nums.length)
     console.log(nums)
