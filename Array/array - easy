@@ -89,3 +89,28 @@ Output: 2
    }
    return k
 };
+
+4. Rotate Array
+Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+  var rotate = function (nums, k) {
+   for (let p = 0; p < k&(nums.length); p++) {
+        temp = nums[nums.length - 1]
+        for (let i = nums.length - 1; i > 0; i--) {
+            nums[i] = nums[i - 1]
+        }
+       nums[0] = temp
+   }
+  return nums ;
+  }
+  or
+  var rotate = function (nums, k) {
+    if (nums.length <= 1) return nums
+    if (k == nums.length && k % 2 == 0) return [nums[1]].concat(nums[0])
+    if (k == nums.length) return nums
+    k = k % nums.length;
+    let x = nums.slice(-k)
+    let y = nums.slice(0, nums.length - k)
+    nums.splice(0, nums.length, ...x.concat(y))
+    return nums ;
+};
