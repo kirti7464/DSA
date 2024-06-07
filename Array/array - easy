@@ -34,3 +34,44 @@ is 34.
         a= a.sort((a,b)=>a-b)
         return a[a.length-2]
   }
+
+3. Check if Array Is Sorted and Rotated
+Input: nums = [3,4,5,1,2]
+Output: true
+Explanation: [1,2,3,4,5] is the original sorted array.
+You can rotate the array by x = 3 positions to begin on the the element of value 3: [3,4,5,1,2].
+
+  - divided array into two and checking whether those array are sorted or not and checking whether all element of arr1 is greater than arr2 
+  - one is from 0 to that element which is less than its pervious one and other from that element to n
+  - checking whether all element of arr1 is greater than arr2
+
+  var check = function(nums) {
+  function func(nums,n){
+    for(let i=0;i<n;i++){
+        if(nums[i]>nums[i+1]){
+            if(!isSorted(nums.slice(0,i+1),nums.length,nums[i]) ||      
+            !isSorted(nums.slice(i+1,n),nums.length,nums[i]) || !oneTimeDisorted(nums,i+1)) return false 
+        }
+    }
+    return true
+  }
+//checking array is sorted or not
+  function isSorted(nums,n){
+      for(let i=0;i<n;i++){
+          if(nums[i]>nums[i+1] ){
+              return false
+          }
+      }
+      return true
+  }
+//checking if arr1 is greater than whole arr2 or not
+  function oneTimeDisorted(a,x){
+      for(let i=0;i<x;i++){
+          for(let j=x;j<a.length;j++){
+              if(nums[i]<nums[j]) return false
+          }
+      }
+      return true
+  }
+  return (func(nums,nums.length));
+  };
