@@ -37,3 +37,16 @@ Output: [0,0,1,1,2,2]
       }
       return nums
   };
+
+3. Majority Element [https://leetcode.com/problems/majority-element/description/]
+Input: nums = [3,2,3]
+Output: 3
+  var majorityElement = function(nums) {
+    let obj={}
+    for(let i=0;i<nums.length;i++){
+        obj[nums[i]] = (obj[nums[i]]|| 0)+1
+    }
+    for(let count in obj){
+        if(obj[count]>nums.length/2) return count
+    }
+  };
