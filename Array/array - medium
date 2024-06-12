@@ -152,3 +152,40 @@ Other ways such as [1,-2,2,-5,3,-4], [3,1,2,-2,-5,-4], [-2,3,-5,1,-4,2] are inco
     }
     return nums
 };
+
+7. Next Permutation
+Input format: {1,3,2}
+Output : {2,1,3}
+Explanation: 
+All permutations of {1,2,3} are {{1,2,3} , {1,3,2}, {2,13} , {2,3,1} , {3,1,2} , {3,2,1}}. 
+So, the next permutation just after {1,3,2} is {2,1,3}.
+
+  function reverse(nums, i, n) {
+    while (i <= n) {
+        temp = nums[i]
+        nums[i] = nums[n]
+        nums[n] = temp
+        i++
+        n--
+    }
+    return nums
+  }
+  var nextPermutation = function (nums) {
+      let brkpnt = -1
+      for (let i = nums.length - 1; i >= 0; i--) {
+          if (nums[i] > nums[i - 1]) {
+              brkpnt = i - 1
+              break;
+          }
+      }
+      if (brkpnt == -1) return reverse(nums, 0, nums.length - 1)
+      else {
+          for (let i = nums.length - 1; i >= brkpnt; i--) {
+              if (nums[i] > nums[brkpnt]) {
+                  [nums[i], nums[brkpnt]] = [nums[brkpnt], nums[i]]
+                  break;
+              }
+          }
+          return reverse(nums, brkpnt + 1, nums.length - 1)
+      }
+};
