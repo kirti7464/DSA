@@ -255,3 +255,32 @@ Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefor
     }
     return max
 };
+
+10. Set Matrix Zeroes [https://leetcode.com/problems/set-matrix-zeroes/description/]
+Input: matrix = [[1,1,1],[1,0,1],[1,1,1]]
+Output: [[1,0,1],[0,0,0],[1,0,1]]
+
+  var setZeroes = function (matrix) {
+    let iArr = [], jArr = []
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            if (matrix[i][j] == 0) {
+                iArr.push(i)
+                jArr.push(j)
+            }
+        }
+    }
+    for (let i = 0; i < matrix.length; i++) {
+        if (iArr.includes(i)) {
+            for (let j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = 0
+            }
+        }
+        for (let j = 0; j < matrix[i].length; j++) {
+            if(jArr.includes(j)){
+                matrix[i][j] = 0
+            }
+        }
+    }
+    return matrix
+};
