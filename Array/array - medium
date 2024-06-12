@@ -219,3 +219,39 @@ Explanation: Note that there is nothing great on the right sides of 17, 5 and 2.
     }
     return temp.reverse()
     }
+
+9. Longest Consecutive Sequence [https://leetcode.com/problems/longest-consecutive-sequence/description/]
+Input: nums = [100,4,200,1,3,2]
+Output: 4
+Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
+
+  var longestConsecutive = function(nums) {
+    let num=-1,c=0,max=1
+    if(nums.length<1) return 0
+    //1st way
+    // for(let i=0;i<nums.length;i++){
+    //   if(nums.includes(nums[i]+1)) {
+    //     num=nums[i]
+    //   }
+    //   while(nums.includes(num)){
+    //     num = num+1
+    //     c++
+    //   }
+    //   max= Math.max(c,max)
+    //   c=0
+    // }
+    // 2nd way
+    numSet = new Set(nums)
+    for(let i of numSet){
+        if(!numSet.has(i-1)) {
+            num=i
+            c=1
+        }
+        while(numSet.has(num+1)){
+            num++
+            c++
+        }
+        max= Math.max(max,c)
+    }
+    return max
+};
