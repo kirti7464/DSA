@@ -360,3 +360,18 @@ Output: [1,2,3,4,8,12,11,10,9,5,6,7]
     }
     return temp
 };
+
+14. Max sum in sub-arrays
+Input : arr[] = [4, 3, 1, 5, 6]
+Output : 11
+Explaination: max sum of consecutive element 
+
+  var pairWithMaxSum = function(arr) {
+    let sum=0,max=-1
+    for(let i=0;i<arr.length-1;i++){
+      sum+=arr[i]+arr[i+1]
+      max = Math.max(max,sum)
+      sum=0
+    }
+    return max
+  };
