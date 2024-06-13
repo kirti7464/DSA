@@ -1,0 +1,47 @@
+1. Majority Element II [https://leetcode.com/problems/majority-element-ii/description/]
+Input: nums = [3,2,3]
+Output: [3]
+Explaination :  find all elements that appear more than ⌊ n/3 ⌋ times.
+
+  var majorityElement = function(arr) {
+    let obj={},temp=[]
+    for(let i=0;i<arr.length;i++){
+      obj[arr[i]] = (obj[arr[i]] || 0 ) + 1
+    }
+    for(let freq in obj){
+        if(obj[freq]>Math.floor(arr.length/3)) temp.push(freq)
+    }
+    return temp
+};
+
+2. 3Sum [https://leetcode.com/problems/3sum/description/]
+Input: nums = [-1,0,1,2,-1,-4]
+Output: [[-1,-1,2],[-1,0,1]]
+
+  var threeSum = function(nums) {
+    let res=[]
+    nums.sort((a,b)=>a-b)
+    for(let i=0;i<nums.length;i++){
+        let l=i+1,r=nums.length-1
+        let sum=0
+        while(l<r){
+            sum=nums[i]+nums[l]+nums[r]
+            if(sum==0){
+                res.push([nums[i],nums[l],nums[r]])
+                while(nums[l]==nums[l+1]) l++
+                while(nums[r]==nums[r-1]) r--
+                l++
+                r--
+            }
+            else if(sum>0){
+                r--
+            }
+            else{
+                l++
+            }
+            
+        }
+        while(nums[i]==nums[i+1]) i++
+    }
+    return res
+};
