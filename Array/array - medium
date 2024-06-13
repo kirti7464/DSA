@@ -337,3 +337,26 @@ Output: 2
     }
     return c
 };
+
+13. Spiral Matrix [https://leetcode.com/problems/spiral-matrix/description/]
+Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+  var spiralOrder = function (m) {
+    let n = m.length,temp=[]
+    let left =0,right=m[0].length-1,top=0,bottom=n-1
+    while(left<=right && top<=bottom){
+        for(let i=left;i<=right;i++) temp.push(m[top][i])
+        top++
+        for(let i=top;i<=bottom;i++) temp.push(m[i][right])
+        right--
+        if (top <= bottom) {
+            for(let i=right;i>=left;i--) temp.push(m[bottom][i])
+            bottom--
+        }
+        if(left<=right){
+            for(let i=bottom;i>=top;i--) temp.push(m[i][left])
+            left++
+        }
+    }
+    return temp
+};
