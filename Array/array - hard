@@ -122,3 +122,18 @@ Output 1:
         }
         return c
 	}
+
+6. Merge Sorted Array [https://leetcode.com/problems/merge-sorted-array/description/]
+Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+Output: [1,2,2,3,5,6]
+
+	var merge = function(nums1, m, nums2, n) {
+	    let j=0
+	    for(let i=0;i<nums1.length;i++){
+	        if(nums1[i]==0 && j<n){
+	            nums1[i]=nums2[j]
+	            j++
+	        }
+	    }
+	    return nums1.sort((a,b)=>a-b)
+	};
