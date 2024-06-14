@@ -101,3 +101,24 @@ sum 0 will be -2 2 -8 1 7.
     }
     return c;
    }
+
+5. Subarray with given XOR
+Input 1:
+ A = [4, 2, 2, 6, 4]
+ B = 6
+Output 1:
+ 4
+
+   function solve (A, B){
+        let obj={},c=0,xor=0
+        for(let i=0;i<A.length;i++){
+            xor^=A[i]
+            if(xor===B) c++
+            let x = xor^B
+            if(x in obj){
+                c += obj[x]
+            }
+            obj[xor] = (obj[xor] || 0) +1
+        }
+        return c
+	}
