@@ -81,4 +81,23 @@ Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
     return res
 `};
 
-4.
+4. Largest subarray with 0 sum [https://www.geeksforgeeks.org/problems/largest-subarray-with-0-sum/1]
+Input:
+N = 8
+A[] = {15,-2,2,-8,1,7,10,23}
+Output: 5
+Explanation: The largest subarray with
+sum 0 will be -2 2 -8 1 7.
+
+   function maxLen(arr,n){
+    let obj={},c=0,sum=0
+    for(let i=0;i<n;i++){
+      sum+=arr[i]
+      if(sum==0) c =i+1
+      else{
+        if(obj.hasOwnProperty(sum)) c = Math.max(c,i-obj[sum])
+        else obj[sum]=i
+      }
+    }
+    return c;
+   }
