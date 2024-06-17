@@ -1,10 +1,25 @@
 # DSA
 
-- pattern
-- hashing
-- recursion
+- Basic problems
+    ├── hashing
+    ├── maths
+    ├── recursion
+    ├── practice - basic
+  
 - maths problem
+    ├── mathsProblem
+  
 - array
+    ├── array - easy
+    ├── array - medium
+    ├── array - hard
+    ├── practice
+
 - Sorting
-- Binary Search
+    ├── sorting - |
+    ├── sorting - ||
+    ├── practice - sorting
+
+- pattern
+
   
