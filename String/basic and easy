@@ -23,3 +23,30 @@ Output: "fl"
     }
     return str
 };
+
+2. Isomorphic Strings [https://leetcode.com/problems/isomorphic-strings/description/]
+Input: s = "egg", t = "add"
+Output: true
+
+  var isIsomorphic = function(s, t) {
+    let obj={},obj1={}
+    if(s.length!=t.length) return false
+    for(let i=0;i<s.length;i++){
+      //checking in first str if its char's indexed character in second str is same at every occurence or not 
+        if(obj[s[i]]){
+            if(obj[s[i]]!=t[i]) return false
+        }
+        else{
+            obj[s[i]]=t[i]
+        }
+      // now checking in second str
+        if(obj1[t[i]]){
+            if(obj1[t[i]]!=s[i]) return false
+        }
+        else{
+            obj1[t[i]]=s[i]
+        }
+        
+    }
+    return true
+};
