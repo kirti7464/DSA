@@ -25,6 +25,8 @@ Output: "fl"
 };
 
 3. Isomorphic Strings [https://leetcode.com/problems/isomorphic-strings/description/]
+- concat first string twice 
+- find whether second string exists in concated string or not
 Input: s = "egg", t = "add"
 Output: true
 
