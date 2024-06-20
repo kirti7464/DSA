@@ -209,3 +209,59 @@ Basic Implementation of Linked List :
         tail: { value: 500, next: null },
         size: 5
       }
+
+* Searching of Node [Both type - Based on Value and Element]
+
+      class Node{
+        constructor(data){
+          this.head={
+            value: data,
+            next:null,
+          }
+          this.tail= this.head
+          this.size=1
+        }
+        appendNode(data){
+          let newNode={
+            value: data,
+            next:null
+          }
+          this.tail.next = newNode
+          this.tail = newNode
+          this.size += 1
+        }
+        searchNodeByValue(data){
+          let result = null;
+          let lead = this.head
+          let loop=true
+          while(loop){
+            lead=lead.next
+            if(!lead.next) loop=false
+            if(loop & lead.value === data) {
+              loop =false
+              result = lead
+            }
+          }
+          return result
+        }
+        searchNodeByEle(data){
+          let c=1,result=null;
+          let str=this.head
+          while(c<=data){
+            str = str.next
+            c++
+            if(c==data) result=str
+          }
+          return result
+        }
+      }
+      let list= new Node(200)
+      list.appendNode(300)
+      list.appendNode(400)
+      list.appendNode(500)
+      console.log(list.searchNodeByValue(300))
+      console.log(list.searchNodeByEle(2))
+
+  OUTPUT ->
+      { value: 300, next: { value: 400, next: { value: 500, next: null } } }
+      { value: 300, next: { value: 400, next: { value: 500, next: null } } }
