@@ -1,0 +1,57 @@
+Linked List :
+It is a linear data structure that stores elements in noncontagious manner unlike array.
+Here each element called as node, consists of two parts 
+  - Value [stores value/ data of that element]
+  - Next [stores pointer/ reference to the next node]
+
+Basic Implementation of Linked List :
+- create a class containing one head and tail of LL
+- create an object with that class with some value.
+
+* Creating structure of Node [with one node, head = tail]
+      class Node{
+        constructor(data){
+          this.head={
+            value: data,
+            next:null
+          }
+          this.tail= this.head
+        }
+      }
+      let list= new Node(200)
+      console.log(list)
+
+  OUTPUT ->
+      Node {
+        head: { value: 200, next: null },
+        tail: { value: 200, next: null }
+      }
+      
+* Insertion of Node to above created Node [adding one node to previous node, head->tail]
+
+      class Node{
+        constructor(data){
+          this.head={
+            value: data,
+            next:null
+          }
+          this.tail= this.head
+        }
+        appendNode(data){
+          let newNode={
+            value: data,
+            next:null
+          }
+          this.tail.next = newNode
+          this.tail = newNode
+        }
+      }
+      let list= new Node(200)
+      list.appendNode(300)
+      console.log(list)
+      
+  OUTPUT ->
+      Node {
+        head: { value: 200, next: { value: 400, next: null } },
+        tail: { value: 400, next: null }
+      }
