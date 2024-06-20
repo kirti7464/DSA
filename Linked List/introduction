@@ -134,8 +134,8 @@ Basic Implementation of Linked List :
             }
             let newNode = lead.next.next
             lead.next = newNode
-            this.size-=1
           }
+          this.size-=1
         }
       }
       let list= new Node(200)
@@ -150,4 +150,62 @@ Basic Implementation of Linked List :
         head: { value: 200, next: { value: 300, next: [Object] } },
         tail: { value: 500, next: null },
         size: 3
+      }
+
+* Insertion of Node
+
+      class Node{
+        constructor(data){
+          this.head={
+            value: data,
+            next:null,
+          }
+          this.tail= this.head
+          this.size=1
+        }
+        appendNode(data){
+          let newNode={
+            value: data,
+            next:null
+          }
+          this.tail.next = newNode
+          this.tail = newNode
+          this.size += 1
+        }  
+        insertion (ele,data){
+          let newNode={
+            value : data,
+            next : null
+          }
+          let c=1;
+          let lead= this.head;
+          if(ele==1){
+            newNode.next = lead
+            this.head = newNode
+            
+          }
+           else{
+               while(c<ele-1){
+               lead =lead.next
+               c++
+             }
+             let newNext = lead.next
+             newNode.next = newNext
+             lead.next = newNode
+           }
+           this.size+=1
+        }
+      }
+      let list= new Node(200)
+      list.appendNode(300)
+      list.appendNode(400)
+      list.appendNode(500)
+      list.insertion(3,5000)
+      console.log(list)
+
+  OUTPUT ->
+      Node {
+        head: { value: 200, next: { value: 300, next: { value: 5000, next: { value: 400, next: { value: 500, next: null } } } } },
+        tail: { value: 500, next: null },
+        size: 5
       }
