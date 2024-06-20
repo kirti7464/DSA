@@ -55,3 +55,99 @@ Basic Implementation of Linked List :
         head: { value: 200, next: { value: 400, next: null } },
         tail: { value: 400, next: null }
       }
+
+* Traversing of Nodes 
+
+      class Node{
+        constructor(data){
+          this.head={
+            value: data,
+            next:null,
+          }
+          this.tail= this.head
+          this.size=1
+        }
+        appendNode(data){
+          let newNode={
+            value: data,
+            next:null
+          }
+          this.tail.next = newNode
+          this.tail = newNode
+          this.size += 1
+        }
+        traversing(){
+          let c=0;
+          let str= this.head;
+          while(c<this.size){
+            console.log(str)
+            str=str.next
+            c++
+          }
+        }
+      }
+      let list= new Node(200)
+      list.appendNode(300)
+      list.appendNode(400)
+      list.appendNode(500)
+      list.traversing()
+
+  OUTPUT ->
+      {
+        value: 200,
+        next: { value: 300, next: { value: 400, next: [Object] } }
+      }
+      { value: 300, next: { value: 400, next: { value: 500, next: null } } }
+      { value: 400, next: { value: 500, next: null } }
+      { value: 500, next: null }
+
+* Deletion of Node
+
+      class Node{
+        constructor(data){
+          this.head={
+            value: data,
+            next:null,
+          }
+          this.tail= this.head
+          this.size=1
+        }
+        appendNode(data){
+          let newNode={
+            value: data,
+            next:null
+          }
+          this.tail.next = newNode
+          this.tail = newNode
+          this.size += 1
+        }
+        deleteNode(ele){
+          let c=1;
+          let lead= this.head;
+          if(ele==1){
+            this.head = this.head.next
+          }
+          else{
+            while(c<ele-1){
+            lead=lead.next
+              c++
+            }
+            let newNode = lead.next.next
+            lead.next = newNode
+            this.size-=1
+          }
+        }
+      }
+      let list= new Node(200)
+      list.appendNode(300)
+      list.appendNode(400)
+      list.appendNode(500)
+      list.deleteNode(3)
+      console.log(list)
+
+  OUTPUT ->
+      Node {
+        head: { value: 200, next: { value: 300, next: [Object] } },
+        tail: { value: 500, next: null },
+        size: 3
+      }
