@@ -17,5 +17,7 @@
     │   ├── sorting - |
     |   ├── practice - sorting
     │   ├── sorting - ||
+    ├── string
+    ├── linked lists
     ├── pattern
     └── README.md
