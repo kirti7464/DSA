@@ -1,4 +1,4 @@
-1. Linked List Insertion
+1. Linked List Insertion [https://www.geeksforgeeks.org/problems/linked-list-insertion-1587115620/]
 
 Create a link list of size N according to the given input literals.
 Each integer input is accompanied by an indicator which can either be 0 or 1. If it is 0, insert the integer in the
@@ -28,7 +28,7 @@ Output: 5 6 9
         return head
     }
 
-2. Linked List Deletion
+2. Linked List Deletion [https://leetcode.com/problems/delete-node-in-a-linked-list/description/]
 Input: head = [4,5,1,9], node = 5
 Output: [4,1,9]
 Explanation: You are given the second node with value 5, the linked list should become 4 -> 1 -> 9 after calling your function.
