@@ -62,3 +62,24 @@ linked list is 5, which is its length.
         }
         return count
     }
+
+4. Search in Linked List [https://www.geeksforgeeks.org/problems/search-in-linked-list-1664434326/]
+Input:
+n = 4
+1->2->3->4
+Key = 3
+Output:
+1
+Explanation:
+3 is present in Linked List, so the function returns 1 else 0.
+
+  searchKey(n, head, key) {
+        // Code here
+        let i=0
+        while(i<n){
+            if(head.data == key) return 1
+            head = head.next
+            i++
+        }
+        return 0
+    }
