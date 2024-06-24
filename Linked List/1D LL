@@ -27,3 +27,17 @@ Output: 5 6 9
         current.next = newNode
         return head
     }
+
+2. Linked List Deletion
+Input: head = [4,5,1,9], node = 5
+Output: [4,1,9]
+Explanation: You are given the second node with value 5, the linked list should become 4 -> 1 -> 9 after calling your function.
+
+Hint:In reality, only a node is given that needs to be deleted, so basically we are changing its val
+to next node's val & it's pointer to next node's pointer.
+[Since the node is guarentee not to be the tail]
+
+  var deleteNode = function(node) {
+    node.val= node.next.val;
+    node.next= node.next.next;
+  };
