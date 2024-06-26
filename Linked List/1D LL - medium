@@ -19,3 +19,18 @@ Explanation: Since the list has two middle nodes with values 3 and 4, we return 
     }
     return head
 };
+
+2. Reverse a LL [https://leetcode.com/problems/reverse-linked-list/description/]
+Input: head = [1,2,3,4,5]
+Output: [5,4,3,2,1]
+
+  var reverseList = function(head) {
+    let prev=null,next=null,start = head
+    while(start!=null){
+        next = start.next
+        start.next =prev
+        prev=start
+        start=next
+    }
+    return prev
+  };
