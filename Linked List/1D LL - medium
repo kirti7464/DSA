@@ -67,3 +67,32 @@ exists more than one time -> if yes, return that node else null
     }
     return null
  };
+
+5. Find length of Loop [https://www.geeksforgeeks.org/problems/find-length-of-loop/1]
+** store each node in another DS,and check whether one node
+exists more than one time 
+-> if yes,again stores those nodes in another DS, and heck whether one node
+exists more than one time -> if yes, return count before duplicate node occurs
+-> else 0
+
+  var countNodesinLoop = function (head)
+    {
+        let start =head,c=0
+        let visitedNodes=[]
+        while(start){
+            if(visitedNodes.includes(start)){
+                let values= start,i=0,noOfNodes=[]
+                while(!noOfNodes.includes(values)){
+                    noOfNodes.push(values)
+                    c++
+                    values = values.next
+                }
+                return c
+            }
+            else{
+                visitedNodes.push(start)
+                start = start.next
+            }
+        }
+        return 0
+    }
