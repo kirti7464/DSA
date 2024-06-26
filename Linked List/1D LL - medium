@@ -51,3 +51,19 @@ one node exists more than one time -> if yes, return true else false
     }
     return false
 };
+
+4. Linked List Cycle II [https://leetcode.com/problems/linked-list-cycle-ii/description/]
+** store each node in another DS,and check whether one node
+exists more than one time -> if yes, return that node else null
+
+  var detectCycle = function(head) {
+    let start=head,visitedNodes=[]
+    while(start){
+        if(visitedNodes.includes(start)){
+            return visitedNodes[visitedNodes.indexOf(start)]
+        }
+        visitedNodes.push(start)
+        start=start.next
+    }
+    return null
+ };
