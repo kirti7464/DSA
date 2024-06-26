@@ -34,3 +34,20 @@ Output: [5,4,3,2,1]
     }
     return prev
   };
+
+3. Linked List Cycle [https://leetcode.com/problems/linked-list-cycle/description/]
+** description was bad, store each node in another DS,and check whether
+one node exists more than one time -> if yes, return true else false
+
+  var hasCycle = function(head) {
+    let start=head,visitedNode=[]
+    if(!start) return false
+    while(start?.next){
+        if(visitedNode.includes(start)){
+            return true
+        }
+        visitedNode.push(start)
+        start=start.next
+    }
+    return false
+};
