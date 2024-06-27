@@ -96,3 +96,22 @@ exists more than one time -> if yes, return count before duplicate node occurs
         }
         return 0
     }
+
+6. Palindrome Linked List [https://leetcode.com/problems/palindrome-linked-list/description/]
+Input: head = [1,2]
+Output: false
+
+  var isPalindrome = function(head) {
+    let start = head
+    let values =[]
+    while(start){
+        values.push(start.val)
+        start=start.next
+    }
+    let i=0;
+    while(i<Math.floor(values.length/2)){
+        if(values[i]!==values[values.length-i-1])return false
+        i++
+    }
+    return true
+  };
