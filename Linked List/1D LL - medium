@@ -115,3 +115,23 @@ Output: false
     }
     return true
   };
+
+7. Delete the Middle Node of a Linked List [https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/description/]
+- Find the Middle Node: Use two pointers, slow and fast. Move slow one step at a time and fast two steps at a time.
+When fast reaches the end of the list, slow will be at the middle node.
+- Delete the Middle Node: Use a prev pointer to keep track of the node before slow. 
+Update prev.next to skip over the middle node (slow), effectively removing it from the list.
+
+  var deleteMiddle = function(head) {
+    if(!head || !head.next) return null
+    let prev=null,i=head,j=head
+    while(j!=null && j.next!=null){
+        prev=i
+        i=i.next
+        j=j.next.next
+    }
+    if(prev!=null){
+        prev.next=i.next
+    }
+    return head
+  };
