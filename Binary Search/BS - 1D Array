@@ -1,3 +1,8 @@
+BINARY SEARCH
+  - operates in O(logn) time complexity
+  - works on sorted array
+  - have to find any element/ occurence/ range of elements meeting certain criteria
+
 1. Binary Search [https://leetcode.com/problems/binary-search/description/]
 ** mark low,high,mid in array, if element at mid is
 - greater than target shift targeted array to 1st half [from low to mid]
