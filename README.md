@@ -18,6 +18,7 @@
     |   ├── practice - sorting
     │   ├── sorting - ||
     ├── string
+    ├── Binary search
     ├── linked lists
     ├── pattern
     └── README.md
