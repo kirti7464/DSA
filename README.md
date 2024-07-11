@@ -19,6 +19,7 @@
     │   ├── sorting - ||
     ├── string
     ├── Binary search
+    │   ├── BS - 1D Array
     ├── linked lists
     ├── pattern
     └── README.md
