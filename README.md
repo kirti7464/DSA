@@ -21,5 +21,8 @@
     ├── Binary search
     │   ├── BS - 1D Array
     ├── linked lists
+    │   ├── introduction
+    │   ├── 1D LL
+    │   ├── 1D LL - medium
     ├── pattern
     └── README.md
